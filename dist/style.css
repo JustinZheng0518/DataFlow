@@ -5,3 +5,5 @@
 /* English labels wrap naturally on narrow ingredient cards. */
 .appliance-name{flex-wrap:wrap}.appliance-name small{white-space:normal;line-height:1.4}.serve-button b{font-size:17px}.ticket-food>div{min-width:0}.ticket-food b{overflow-wrap:normal}.station-tabs small{font-size:6px}.food-preview>div{line-height:1.6}.ingredients-label span{font-size:7px}.kitchen-header .text-button{max-width:45%;text-align:right;line-height:1.5}
 @media(max-width:560px){.appliance-name small{margin-left:0;flex-basis:100%}.serve-button b{width:96px}.ingredient small{min-height:20px}.ticket-bottom{flex-wrap:wrap;gap:4px}.ticket-ingredients{min-height:58px}.ticket-top{gap:3px}.prep-heading h2{font-size:14px}.scene-badge{letter-spacing:1px}.metrics .timer-stat{min-width:48px}.metrics span{letter-spacing:-.1px}.open-status b{max-width:60px;line-height:1.4}.prep-heading .text-button{white-space:nowrap;margin-left:5px}}
+
+.fps-link{text-decoration:none;display:inline-flex;align-items:center;gap:6px}

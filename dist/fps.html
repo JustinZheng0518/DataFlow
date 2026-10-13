@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#213e31">
+<title>Sizzle Kitchen · First Person</title>
+<meta name="description" content="Walk around the Sizzle Kitchen in first person, alone or with friends, and cook every order yourself.">
+<link rel="stylesheet" href="fps.css">
+</head>
+<body>
+<canvas id="view" aria-label="First-person kitchen view"></canvas>
+
+<div id="hud" class="hud" hidden>
+  <div class="stats">
+    <div><span id="mode-label">Practice</span><b id="clock">00:00</b></div>
+    <div><span>Score</span><b id="score">0</b></div>
+    <div><span>Revenue</span><b id="revenue">¥0</b></div>
+    <div><span>Served</span><b id="served">0</b></div>
+  </div>
+  <div id="events" class="events" aria-live="polite"></div>
+  <div class="orders"><span class="eyebrow">ORDER UP · keys 1–3</span><div id="orders"></div></div>
+  <div id="players" class="players" hidden></div>
+  <div class="crosshair" id="crosshair"></div>
+  <div class="prompt" id="prompt"></div>
+  <div class="held"><span>In hand</span><b id="held">Empty hands</b><small id="drop-hint"></small></div>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <div class="message" id="message" role="status" aria-live="polite"></div>
+  <div class="keys">WASD move · Shift run · E / click use · Q put down · Esc menu</div>
+</div>
+
+<section id="start" class="overlay">
+  <div class="card">
+    <span class="eyebrow">SIZZLE KITCHEN · FIRST PERSON</span>
+    <h1>Your kitchen. Your hands.</h1>
+    <p>Grab ingredients from the crates, build dishes on the island, work the oven and griddle, then ring the bell at the window. Customers walk up and take their food. Watch out for rushes, fires, food critics and empty crates.</p>
+    <div class="howto">
+      <div><b>🍕 Pizza</b><p>Dough → sauce → mozzarella → toppings on the pizza board. Carry it to the oven, take it out, and serve it at the window.</p></div>
+      <div><b>🍔 Burger</b><p>Raw patty from the fridge onto the griddle. Stack bun, cooked patty, toppings and top bun on the burger board, then serve.</p></div>
+    </div>
+    <label class="name-field">Chef name <input id="name" maxlength="16" autocomplete="off" placeholder="Chef"></label>
+    <div class="mode-group">
+      <b>Solo</b>
+      <div class="buttons">
+        <button id="start-practice" class="primary">Free practice</button>
+        <button id="start-shift">3-minute shift</button>
+      </div>
+    </div>
+    <div class="mode-group" id="together">
+      <b>Play together</b>
+      <p id="together-note" class="note">Checking for a kitchen server…</p>
+      <div class="buttons"><button id="join" class="primary" disabled>Join the shared kitchen</button></div>
+    </div>
+    <p id="start-error" class="form-error" role="alert"></p>
+    <p class="controls">WASD move · mouse look · Shift run · <b>E</b> or click to use · <b>Q</b> put down · <b>1–3</b> pick a ticket · <b>Esc</b> menu</p>
+    <a class="back" href="./">← Back to the classic 2.5D kitchen</a>
+  </div>
+</section>
+
+<section id="paused" class="overlay" hidden>
+  <div class="card small">
+    <span class="eyebrow" id="pause-eyebrow">ON A BREAK</span>
+    <h2 id="pause-title">Kitchen timers are paused</h2>
+    <p id="pause-note" class="note"></p>
+    <div class="buttons">
+      <button id="resume" class="primary">Back to cooking</button>
+      <button id="restart-practice">Restart practice</button>
+      <button id="restart-shift">New shift</button>
+      <button id="toggle-pause" hidden>Pause for everyone</button>
+      <button id="leave">Main menu</button>
+    </div>
+    <a class="back" href="./">← Classic 2.5D kitchen</a>
+  </div>
+</section>
+
+<section id="summary" class="overlay" hidden>
+  <div class="card small">
+    <span class="eyebrow">THAT'S A WRAP</span>
+    <h2>Shift complete, chef.</h2>
+    <div id="summary-stats" class="summary-stats"></div>
+    <p id="best-score"></p>
+    <div class="buttons">
+      <button id="again" class="primary">Start another shift</button>
+      <button id="to-practice">Free practice</button>
+    </div>
+  </div>
+</section>
+
+<p id="webgl-error" class="overlay error" hidden>This mode needs WebGL. Try a recent version of Chrome, Safari or Firefox, or use the <a href="./">classic kitchen</a>.</p>
+<script type="module" src="js/fps/main.js"></script>
+</body>
+</html>
